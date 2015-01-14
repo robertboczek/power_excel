@@ -22,3 +22,15 @@ C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\Exce
 C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
 C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
 C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.pdb
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll.manifest
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.vsto
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csprojResolveAssemblyReference.cache
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Properties.Resources.resources
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Ribbon1.resources
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
+C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
