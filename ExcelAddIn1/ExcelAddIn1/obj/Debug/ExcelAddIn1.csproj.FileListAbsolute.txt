@@ -34,3 +34,5 @@ C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\Excel
 C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
 C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
 C:\Users\florin\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Facebook.dll
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Facebook.xml
