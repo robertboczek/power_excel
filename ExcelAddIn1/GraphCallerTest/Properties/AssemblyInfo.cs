@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("GraphCaller")]
+[assembly: AssemblyTitle("GraphCallerTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("GraphCaller")]
+[assembly: AssemblyProduct("GraphCallerTest")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("52412b26-e4b2-4a5e-8201-54b25cbe501b")]
+[assembly: Guid("69963d15-7623-49dc-bf94-a7b71113660f")]
 
 // Version information for an assembly consists of the following four values:
 //
