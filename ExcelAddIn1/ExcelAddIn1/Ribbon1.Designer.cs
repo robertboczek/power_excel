@@ -36,9 +36,9 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.helloButton = this.Factory.CreateRibbonButton();
-            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.button1 = this.Factory.CreateRibbonButton();
+            this.accountNoEdit = this.Factory.CreateRibbonEditBox();
+            this.syncButton = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
             // 
@@ -51,27 +51,27 @@
             // 
             // group1
             // 
-            this.group1.Items.Add(this.helloButton);
-            this.group1.Items.Add(this.separator1);
+            this.group1.Items.Add(this.accountNoEdit);
+            this.group1.Items.Add(this.syncButton);
             this.group1.Items.Add(this.button1);
             this.group1.Label = "AdManager";
             this.group1.Name = "group1";
             // 
-            // helloButton
-            // 
-            this.helloButton.Label = "Say Hello";
-            this.helloButton.Name = "helloButton";
-            this.helloButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.helloButton_Click);
-            // 
-            // separator1
-            // 
-            this.separator1.Name = "separator1";
-            // 
             // button1
             // 
-            this.button1.Label = "button1";
+            this.button1.Label = "";
             this.button1.Name = "button1";
-            this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click);
+            // 
+            // accountNoEdit
+            // 
+            this.accountNoEdit.Label = "Account number:";
+            this.accountNoEdit.Name = "accountNoEdit";
+            // 
+            // syncButton
+            // 
+            this.syncButton.Label = "Sync account";
+            this.syncButton.Name = "syncButton";
+            this.syncButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.syncButton_Click);
             // 
             // Ribbon1
             // 
@@ -90,9 +90,9 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton helloButton;
-        internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonEditBox accountNoEdit;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton syncButton;
     }
 
     partial class ThisRibbonCollection

@@ -14,14 +14,11 @@ namespace ExcelAddIn1
 
         }
 
-        private void helloButton_Click(object sender, RibbonControlEventArgs e)
-        {
-            MessageBox.Show("Hello, world of Ads");
-        }
-
-        private void button1_Click(object sender, RibbonControlEventArgs e)
+        private void syncButton_Click(object sender, RibbonControlEventArgs e)
         {
             MessageBox.Show("Hello, world of Ads, v2");
         }
+
+
     }
 }
