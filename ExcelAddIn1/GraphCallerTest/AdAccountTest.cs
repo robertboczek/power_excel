@@ -7,8 +7,9 @@ namespace GraphCallerTest
     [TestClass]
     public class AdAccountTest
     {
-        private string testAdAccount = "abc";//do update with the real deal
-        private const int florinAdAccount = 123 ;  
+        private string testAdAccount = "_removed_";
+            //do update with the real deal
+        private const long florinAdAccount = 10151318637546538;  
 
         [TestMethod]
         public void GetAdAccount()
@@ -16,7 +17,7 @@ namespace GraphCallerTest
             // call
             var account = AdAccount.getAdAccount(testAdAccount, florinAdAccount);
             // assert
-            Assert.AreNotEqual(null, account);
+            Assert.AreEqual(florinAdAccount, account.AccontID);
         }
     }
 }
