@@ -1,0 +1,24 @@
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.pdb
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll.manifest
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.vsto
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csprojResolveAssemblyReference.cache
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Properties.Resources.resources
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
+c:\users\florin\documents\visual studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
+C:\Users\florin\Documents\Visual Studio 2013\Projects\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Ribbon1.resources
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.pdb
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll.manifest
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.vsto
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csprojResolveAssemblyReference.cache
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Properties.Resources.resources
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Ribbon1.resources
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
+C:\Users\floring\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
