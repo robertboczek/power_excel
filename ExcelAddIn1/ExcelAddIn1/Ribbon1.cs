@@ -21,6 +21,7 @@ namespace ExcelAddIn1
             MessageBox.Show("Hello, world of Ads, v2");
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
             Excel.Range firstRow = activeWorksheet.get_Range("A1");
+            firstRow.Value2 = "New text";
             firstRow.EntireRow.Insert(Excel.XlInsertShiftDirection.xlShiftDown);
             Excel.Range newFirstRow = activeWorksheet.get_Range("A1");
             newFirstRow.Value2 = "This text was added by using code";
