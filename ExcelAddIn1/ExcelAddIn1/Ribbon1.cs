@@ -5,6 +5,7 @@ using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using GraphCaller;
 
 namespace ExcelAddIn1
 {
@@ -17,6 +18,25 @@ namespace ExcelAddIn1
 
         private void syncButton_Click(object sender, RibbonControlEventArgs e)
         {
+            Excel.Window window = e.Control.Context;
+            Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
+            string account = this.accountNoEdit.Text;
+            for (int i = 1; i <= 1; i++)
+            {
+                Excel.Range cell = activeWorksheet.get_Range("B" + i);
+                string adgroupId = "";
+                if (cell.Value2 is Double) {
+                    adgroupId = cell.Value2.ToString();
+                }
+                MessageBox.Show(adgroupId);
+                if (!adgroupId.Equals(""))
+                {
+                    Uploader.Edit(adgroupId, account,
+                      new Dictionary<string, object>() {
+                        {"name", "trywebsites.azurewebsites.net/ - Website Clicks - Image 1<success>" + DateTime.Now.ToString()}}
+                    );
+                }
+            }
             MessageBox.Show("Data successfully synced!");
         }
 

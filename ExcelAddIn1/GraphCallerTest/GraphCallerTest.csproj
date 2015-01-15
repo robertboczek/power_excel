@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AdAccountTest.cs" />
+    <Compile Include="AdgroupPostTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
