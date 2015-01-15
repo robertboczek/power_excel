@@ -44,7 +44,6 @@ C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Facebook.d
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Facebook.xml
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
-C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csprojResolveAssemblyReference.cache
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Properties.Resources.resources
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.Ribbon1.resources
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
@@ -66,3 +65,9 @@ C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\Excel
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
+<<<<<<< HEAD
+=======
+C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\GraphCaller.dll
+C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\GraphCaller.pdb
+C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csprojResolveAssemblyReference.cache
+>>>>>>> 7e2f5b92df35f81df0cfbb4822f87b053bcc6603

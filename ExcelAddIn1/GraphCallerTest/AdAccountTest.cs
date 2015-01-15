@@ -12,7 +12,7 @@ namespace GraphCallerTest
             //do update with the real deal - access token
         public const long florinAdAccount = 10151318637546538;  
 
-        [TestMethod]
+       [TestMethod]
         public void GetAdAccount()
         {
             // call
@@ -21,5 +21,15 @@ namespace GraphCallerTest
             Assert.AreEqual(florinAdAccount, account.AccontID);
             Assert.IsTrue(account.DailySpend > 0);
         }
+
+        [TestMethod]
+        public void GetAdGroup()
+        {
+            // call
+            var adgroup = AdGroups.getAdGroup(testAdAccount, florinAdAccount);
+            // assert
+            Assert.AreEqual(florinAdAccount, adgroup.AdgroupAccontID);
+        }
+        
     }
 }
