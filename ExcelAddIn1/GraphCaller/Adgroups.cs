@@ -16,10 +16,10 @@ namespace GraphCaller
 
         public string AdgroupName { get; set; }
 
-        public static AdGroups getAdGroup(string access_token, long account_id, HashSet<string> fields = null)
+        public static List<AdGroups> getAdGroup(string access_token, long account_id, HashSet<string> fields = null)
         {
             fields = (fields != null) ? fields : AdGroups.defaultFields;
-            AdGroups result = new AdGroups();
+            List<AdGroups> results = new List<AdGroups>();
 
             var fb = new Facebook.FacebookClient(access_token);
 
@@ -30,13 +30,16 @@ namespace GraphCaller
             dynamic obj2 = fb.Get("act_" + account_id.ToString() + "/adgroups", new { fields = param["fields"] });
 
             var data = obj2["data"];
-            result.AdgroupId = data[0]["id"];
-            var x = data[0]["name"];
-            result.AdgroupName = data[0]["name"];
-            result.AdgroupAccontID = long.Parse(obj2["account_id"]);
+            foreach (var adgroup in data) {
+              AdGroups result = new AdGroups();
+              result.AdgroupId = adgroup["id"];
+              result.AdgroupName = adgroup["name"];
+              result.AdgroupAccontID = long.Parse(adgroup["account_id"]);
 
-            return result;
+              results.Add(result);
+            }
 
+            return results;
         }
     }
 }
