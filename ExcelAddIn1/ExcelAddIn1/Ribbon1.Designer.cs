@@ -36,11 +36,14 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.button1 = this.Factory.CreateRibbonButton();
             this.accountNoEdit = this.Factory.CreateRibbonEditBox();
+            this.button1 = this.Factory.CreateRibbonButton();
+            this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
+            this.loadButton = this.Factory.CreateRibbonButton();
             this.syncButton = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
+            this.buttonGroup1.SuspendLayout();
             // 
             // tab1
             // 
@@ -52,24 +55,37 @@
             // group1
             // 
             this.group1.Items.Add(this.accountNoEdit);
-            this.group1.Items.Add(this.syncButton);
-            this.group1.Items.Add(this.button1);
+            this.group1.Items.Add(this.buttonGroup1);
             this.group1.Label = "AdManager";
             this.group1.Name = "group1";
+            // 
+            // accountNoEdit
+            // 
+            this.accountNoEdit.Label = "Account number:";
+            this.accountNoEdit.Name = "accountNoEdit";
+            this.accountNoEdit.Text = null;
             // 
             // button1
             // 
             this.button1.Label = "";
             this.button1.Name = "button1";
             // 
-            // accountNoEdit
+            // buttonGroup1
             // 
-            this.accountNoEdit.Label = "Account number:";
-            this.accountNoEdit.Name = "accountNoEdit";
+            this.buttonGroup1.Items.Add(this.button1);
+            this.buttonGroup1.Items.Add(this.loadButton);
+            this.buttonGroup1.Items.Add(this.syncButton);
+            this.buttonGroup1.Name = "buttonGroup1";
+            // 
+            // loadButton
+            // 
+            this.loadButton.Label = "Load";
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.loadButton_Click);
             // 
             // syncButton
             // 
-            this.syncButton.Label = "Sync account";
+            this.syncButton.Label = "Sync";
             this.syncButton.Name = "syncButton";
             this.syncButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.syncButton_Click);
             // 
@@ -83,6 +99,8 @@
             this.tab1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            this.buttonGroup1.ResumeLayout(false);
+            this.buttonGroup1.PerformLayout();
 
         }
 
@@ -90,9 +108,11 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
         internal Microsoft.Office.Tools.Ribbon.RibbonEditBox accountNoEdit;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton syncButton;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButtonGroup buttonGroup1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton loadButton;
     }
 
     partial class ThisRibbonCollection
