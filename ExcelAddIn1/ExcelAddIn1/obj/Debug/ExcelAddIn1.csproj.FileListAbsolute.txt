@@ -49,7 +49,6 @@ C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\Excel
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
-<<<<<<< HEAD
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.pdb
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll.manifest
@@ -64,6 +63,3 @@ C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csproj.GenerateResource.Cache
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
-=======
-C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csprojResolveAssemblyReference.cache
->>>>>>> 15fd2a28d17b7184dfd2f0b792c6edf5cc87e045
