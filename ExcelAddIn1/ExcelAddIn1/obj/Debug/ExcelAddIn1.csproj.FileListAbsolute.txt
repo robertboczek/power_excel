@@ -50,6 +50,7 @@ C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.dll
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.pdb
 C:\Users\G\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\obj\Debug\ExcelAddIn1.csprojResolveAssemblyReference.cache
+C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll.config
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.pdb
 C:\Users\Robert\Source\Repos\power_excel\ExcelAddIn1\ExcelAddIn1\bin\Debug\ExcelAddIn1.dll.manifest

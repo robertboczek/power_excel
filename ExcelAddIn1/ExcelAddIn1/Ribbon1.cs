@@ -42,7 +42,7 @@ namespace ExcelAddIn1
             MessageBox.Show("Data successfully synced!");
         }
 
-        private void loadButton_Click(object sender, RibbonControlEventArgs e)
+        private async void loadButton_Click(object sender, RibbonControlEventArgs e)
         {
             
             MessageBox.Show("Loading data for account: " + this.accountNoEdit.Text);
@@ -60,7 +60,45 @@ namespace ExcelAddIn1
                 adgroupName.Value2 = adgroup.AdgroupName;
                 i++;
             }
-            
+
+            var client = new ServiceReference1.Service1Client();
+            FBAdAccount accountDetails = await client.GetAdAccountAsync(token, account);
+
+            Excel.Range accountIdDesc = activeWorksheet.get_Range("L1");
+            accountIdDesc.Value2 = "Account ID";
+            Excel.Range accountId = activeWorksheet.get_Range("M1");
+            accountId.Value2 = accountDetails.AccountId;
+
+            Excel.Range accountdStatusDesc = activeWorksheet.get_Range("L2");
+            accountdStatusDesc.Value2 = "Account Status";
+            Excel.Range accountStatus = activeWorksheet.get_Range("M2");
+            accountStatus.Value2 = accountDetails.AccountStatus;
+
+            Excel.Range ageDesc = activeWorksheet.get_Range("L3");
+            ageDesc.Value2 = "Age";
+            Excel.Range age = activeWorksheet.get_Range("M3");
+            age.Value2 = accountDetails.Age;
+
+            Excel.Range currencyDesc = activeWorksheet.get_Range("L4");
+            currencyDesc.Value2 = "Currency";
+            Excel.Range currency = activeWorksheet.get_Range("M4");
+            currency.Value2 = accountDetails.Currency;
+
+            Excel.Range nameDesc = activeWorksheet.get_Range("L5");
+            nameDesc.Value2 = "Name";
+            Excel.Range name = activeWorksheet.get_Range("M5");
+            name.Value2 = accountDetails.Name;
+
+            Excel.Range businessCityDesc = activeWorksheet.get_Range("L6");
+            businessCityDesc.Value2 = "Business City";
+            Excel.Range businessCity = activeWorksheet.get_Range("M6");
+            businessCity.Value2 = accountDetails.BusinessCity;
+
+            Excel.Range spendCapDesc = activeWorksheet.get_Range("L7");
+            spendCapDesc.Value2 = "Spend Cap";
+            Excel.Range spendCap = activeWorksheet.get_Range("M7");
+            spendCap.Value2 = accountDetails.SpendCap;
+
             //Excel.Range firstRow = activeWorksheet.get_Range("A1");
             //firstRow.Value2 = "New text";
             //firstRow.EntireRow.Insert(Excel.XlInsertShiftDirection.xlShiftDown);
