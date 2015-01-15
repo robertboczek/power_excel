@@ -23,17 +23,18 @@ namespace ExcelAddIn1
             string account = this.accountNoEdit.Text;
             for (int i = 1; i <= 1; i++)
             {
-                Excel.Range cell = activeWorksheet.get_Range("B" + i);
+                Excel.Range cell = activeWorksheet.get_Range("A" + i);
                 string adgroupId = "";
+                string token = "CAACZBwbJIzL0BADmeilhdiNMaavvuFCmqK3TzZBZBQbwovFVsMveiCyz2smDQHWjvuoZBht9Qz7C1f64Jzryef6H87CEXY11f3jEKYwUAVYq7KPvwAojMFkhsaByFulqwGPUKqK9oWgfchDsLJFv0DR88oZCddjWe4q2tZCtxVL9ALgaL8Q78U";
                 if (cell.Value2 is Double) {
                     adgroupId = cell.Value2.ToString();
                 }
-                MessageBox.Show(adgroupId);
+                string adgroupName = activeWorksheet.get_Range("B" + i).Value2;
                 if (!adgroupId.Equals(""))
                 {
-                    Uploader.Edit(adgroupId, account,
+                    Uploader.Edit(adgroupId, token,
                       new Dictionary<string, object>() {
-                        {"name", "trywebsites.azurewebsites.net/ - Website Clicks - Image 1<success>" + DateTime.Now.ToString()}}
+                        {"name", adgroupName}}
                     );
                 }
             }
