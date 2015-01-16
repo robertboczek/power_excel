@@ -37,8 +37,8 @@
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.accountNoEdit = this.Factory.CreateRibbonEditBox();
-            this.button1 = this.Factory.CreateRibbonButton();
             this.buttonGroup1 = this.Factory.CreateRibbonButtonGroup();
+            this.button1 = this.Factory.CreateRibbonButton();
             this.loadButton = this.Factory.CreateRibbonButton();
             this.syncButton = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
@@ -63,12 +63,8 @@
             // 
             this.accountNoEdit.Label = "Account number:";
             this.accountNoEdit.Name = "accountNoEdit";
-            this.accountNoEdit.Text = null;
-            // 
-            // button1
-            // 
-            this.button1.Label = "";
-            this.button1.Name = "button1";
+            this.accountNoEdit.Text = "10151318637546538";
+            this.accountNoEdit.TextChanged += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.accountNoEdit_TextChanged);
             // 
             // buttonGroup1
             // 
@@ -76,6 +72,11 @@
             this.buttonGroup1.Items.Add(this.loadButton);
             this.buttonGroup1.Items.Add(this.syncButton);
             this.buttonGroup1.Name = "buttonGroup1";
+            // 
+            // button1
+            // 
+            this.button1.Label = "";
+            this.button1.Name = "button1";
             // 
             // loadButton
             // 

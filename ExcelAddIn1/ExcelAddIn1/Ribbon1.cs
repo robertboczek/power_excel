@@ -11,7 +11,7 @@ namespace ExcelAddIn1
 {
     public partial class Ribbon1
     {
-        private string token = "CAACZBwbJIzL0BADmeilhdiNMaavvuFCmqK3TzZBZBQbwovFVsMveiCyz2smDQHWjvuoZBht9Qz7C1f64Jzryef6H87CEXY11f3jEKYwUAVYq7KPvwAojMFkhsaByFulqwGPUKqK9oWgfchDsLJFv0DR88oZCddjWe4q2tZCtxVL9ALgaL8Q78U";
+        private string token = "CAACZBwbJIzL0BAIGWuGP5lqZA3gHLckbs8B5LGfD3mTxpxTZBguPjrgi3KnAAsLsZAOOuC0PVPyGnku8iHMsZCZCKj0JBQgYdOe3kZAAiptX56tfqcytjZCc8KvJ64gmXlZCZCXoelU9SrgmzK0IuirbV2KtXg2n13e8QRXTuwITt57ZCSzNdASpKdp";
                 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
@@ -44,10 +44,10 @@ namespace ExcelAddIn1
 
         private async void loadButton_Click(object sender, RibbonControlEventArgs e)
         {
-            
-            MessageBox.Show("Loading data for account: " + this.accountNoEdit.Text);
-            long account = 10151318637546538;
-            List<AdGroups> adgroups = AdGroups.getAdGroup(token, account);
+
+            long account;
+            List<AdGroups> adgroups;
+            GetAdgroups(out account, out adgroups);
 
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
@@ -56,8 +56,13 @@ namespace ExcelAddIn1
             {
                 Excel.Range adgroupId = activeWorksheet.get_Range("A" + i);
                 adgroupId.Value2 = adgroup.AdgroupId;
+                //adgroupId.set_Item(adgroup.AdgroupId, typeof(long));
                 Excel.Range adgroupName = activeWorksheet.get_Range("B" + i);
                 adgroupName.Value2 = adgroup.AdgroupName;
+
+                Excel.Range adgroupStatus = activeWorksheet.get_Range("C" + i);
+                adgroupStatus.Value2 = adgroup.Status;
+
                 i++;
             }
 
@@ -104,6 +109,28 @@ namespace ExcelAddIn1
             //firstRow.EntireRow.Insert(Excel.XlInsertShiftDirection.xlShiftDown);
             //Excel.Range newFirstRow = activeWorksheet.get_Range("A1");
             //newFirstRow.Value2 = "This text was added by using code";
+        }
+
+        private void GetAdgroups(out long account, out List<AdGroups> adgroups)
+        {
+            account = 10151318637546538;
+            FieldsSelector selector = new FieldsSelector(account, token);
+            selector.Text  = "Loading data for account: " + this.accountNoEdit.Text;
+            var result = selector.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //var fields = FieldsSelector.selectedFields;
+                //adgroups = AdGroups.getAdGroup(token, account, fields);
+                adgroups = FieldsSelector.Adgroups;
+            }
+            else {
+                adgroups = new List<AdGroups>(); // empty
+            }
+        }
+
+        private void accountNoEdit_TextChanged(object sender, RibbonControlEventArgs e)
+        {
+
         }
 
     }

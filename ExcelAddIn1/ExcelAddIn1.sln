@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphCaller", "GraphCaller\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphCallerTest", "GraphCallerTest\GraphCallerTest.csproj", "{C367000B-F87A-4EA2-8D80-A63068CF05A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationStore", "ConfigurationStore\ConfigurationStore.csproj", "{97A94641-9240-401F-A97D-36B0BB225760}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationStoreTest", "ConfigurationStoreTest\ConfigurationStoreTest.csproj", "{2B8EA717-4E55-47BC-8A75-7B9A9FE05630}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{C367000B-F87A-4EA2-8D80-A63068CF05A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C367000B-F87A-4EA2-8D80-A63068CF05A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C367000B-F87A-4EA2-8D80-A63068CF05A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97A94641-9240-401F-A97D-36B0BB225760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97A94641-9240-401F-A97D-36B0BB225760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97A94641-9240-401F-A97D-36B0BB225760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97A94641-9240-401F-A97D-36B0BB225760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B8EA717-4E55-47BC-8A75-7B9A9FE05630}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B8EA717-4E55-47BC-8A75-7B9A9FE05630}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B8EA717-4E55-47BC-8A75-7B9A9FE05630}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B8EA717-4E55-47BC-8A75-7B9A9FE05630}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

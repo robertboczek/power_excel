@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/GraphCaller" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/GraphCaller" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="FBAdAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountId" type="xs:long" />
+      <xs:element minOccurs="0" name="AccountStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="Age" type="xs:float" />
+      <xs:element minOccurs="0" name="AgencyClientDeclaration" nillable="true" type="tns:FBAgencyClientDeclaration" />
+      <xs:element minOccurs="0" name="AmountSpent" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Balance" type="xs:int" />
+      <xs:element minOccurs="0" name="BusinessCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessCountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessStreet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BusinessStreet2" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Capabilities" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="CreatedTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DailySpendLimit" type="xs:int" />
+      <xs:element minOccurs="0" name="EntAdvertiser" type="xs:long" />
+      <xs:element minOccurs="0" name="FundingSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPersonal" type="xs:int" />
+      <xs:element minOccurs="0" name="MediaAgency" type="xs:long" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OffsitePixelsTosAccepted" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Partner" type="xs:long" />
+      <xs:element minOccurs="0" name="SpendCap" type="xs:int" />
+      <xs:element minOccurs="0" name="TaxIdStatus" type="xs:int" />
+      <xs:element minOccurs="0" name="TimezoneId" type="xs:int" />
+      <xs:element minOccurs="0" name="TimezoneName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimezoneOffsetHoursUtc" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="TosAccepted" nillable="true" type="q2:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FBAdAccount" nillable="true" type="tns:FBAdAccount" />
+  <xs:complexType name="FBAgencyClientDeclaration">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AgencyRepresentingClient" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientBasedInFrance" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientCountryCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientEMailAddress" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientPostalCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientProvince" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientStreet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientStreet2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HasWrittenMandateFromAdvertiser" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FBAgencyClientDeclaration" nillable="true" type="tns:FBAgencyClientDeclaration" />
+</xs:schema>
