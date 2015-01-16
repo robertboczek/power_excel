@@ -11,8 +11,7 @@ namespace ExcelAddIn1
 {
     public partial class Ribbon1
     {
-        private string token = "CAACZBwbJIzL0BAIGWuGP5lqZA3gHLckbs8B5LGfD3mTxpxTZBguPjrgi3KnAAsLsZAOOuC0PVPyGnku8iHMsZCZCKj0JBQgYdOe3kZAAiptX56tfqcytjZCc8KvJ64gmXlZCZCXoelU9SrgmzK0IuirbV2KtXg2n13e8QRXTuwITt57ZCSzNdASpKdp";
-                
+        private string token = "";
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
             // id, status, name, time updated
