@@ -47,7 +47,6 @@
             // 
             // tab1
             // 
-            this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab1.Groups.Add(this.group1);
             this.tab1.Label = "Power Excel";
             this.tab1.Name = "tab1";
