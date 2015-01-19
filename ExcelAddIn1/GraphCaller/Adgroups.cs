@@ -47,14 +47,7 @@ namespace GraphCaller
               AdGroups result = new AdGroups();
               foreach(var field in fields) {
                   populator[field](result, adgroup);
-                  //result
               }
-              //result.AdgroupId = adgroup["id"];
-              //result.AdgroupName = adgroup["name"];
-              //result.AdgroupAccontID = long.Parse(adgroup["account_id"]);
-              //if (fields.Contains("adgroup_status")) {
-              //    result.Status = adgroup["adgroup_status"];
-              //}
               results.Add(result);
             }
 

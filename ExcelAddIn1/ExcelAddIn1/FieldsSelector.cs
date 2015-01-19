@@ -55,6 +55,7 @@ namespace ExcelAddIn1
             {
                 var fields = FieldsSelector.selectedFields;
                 FieldsSelector.Adgroups = AdGroups.getAdGroup(this.access_token, this.account_id, fields);
+
                 this.Cursor = Cursors.WaitCursor;
             }
             finally {
@@ -63,6 +64,11 @@ namespace ExcelAddIn1
             // close it 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

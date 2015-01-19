@@ -9,12 +9,16 @@ using GraphCaller;
 
 namespace ExcelAddIn1
 {
+    
     public partial class Ribbon1
     {
         private string token = "";
+        private long account = 299668039;
+
+        private AdgroupResults adgroupResults;
+
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
-            // id, status, name, time updated
         }
 
         private void syncButton_Click(object sender, RibbonControlEventArgs e)
@@ -22,20 +26,34 @@ namespace ExcelAddIn1
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
             string account = this.accountNoEdit.Text;
-            for (int i = 1; i <= 1; i++)
+            for (int i = 1; i <= adgroupResults.Adgroups.Count; i++)
             {
-                Excel.Range cell = activeWorksheet.get_Range("A" + i);
-                string adgroupId = "";
-                if (cell.Value2 is Double) {
+                Dictionary<string, object> changes = new Dictionary<string, object>();
+                char col = 'A';
+                HashSet<string> fields = adgroupResults.Fields;
+                 string adgroupId = "";
+                if (fields.Contains("id")) {
+                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + i);
+                  if (cell.Value2 is Double) {
                     adgroupId = cell.Value2.ToString();
+                  }
+                  col++;
                 }
-                string adgroupName = activeWorksheet.get_Range("B" + i).Value2;
+
+                if (fields.Contains("name")) {
+                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + i);
+                  changes.Add("name", cell.Value2);
+                  col++;
+                }
+
+                if (fields.Contains("adgroup_status")) {
+                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + i);
+                  changes.Add("adgroup_status", cell.Value2);
+                  col++;
+                }
                 if (!adgroupId.Equals(""))
                 {
-                    Uploader.Edit(adgroupId, token,
-                      new Dictionary<string, object>() {
-                        {"name", adgroupName}}
-                    );
+                    Uploader.Edit(adgroupId, token, changes);
                 }
             }
             MessageBox.Show("Data successfully synced!");
@@ -43,25 +61,44 @@ namespace ExcelAddIn1
 
         private async void loadButton_Click(object sender, RibbonControlEventArgs e)
         {
-
-            long account;
-            List<AdGroups> adgroups;
-            GetAdgroups(out account, out adgroups);
+            GetAdgroups(out adgroupResults);
+            List<AdGroups> adgroups = adgroupResults.Adgroups;
+            HashSet<string> fields = adgroupResults.Fields;
 
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
             int i = 1;
             foreach (var adgroup in adgroups)
             {
-                Excel.Range adgroupId = activeWorksheet.get_Range("A" + i);
-                adgroupId.Value2 = adgroup.AdgroupId;
-                //adgroupId.set_Item(adgroup.AdgroupId, typeof(long));
-                Excel.Range adgroupName = activeWorksheet.get_Range("B" + i);
-                adgroupName.Value2 = adgroup.AdgroupName;
+                char col = 'A';
+                if (fields.Contains("id")) {
+                  string column = col.ToString() + i;
+                  Excel.Range adgroupId = activeWorksheet.get_Range(column);
+                  adgroupId.Value2 = adgroup.AdgroupId;
+                  col++;
+                }
 
-                Excel.Range adgroupStatus = activeWorksheet.get_Range("C" + i);
-                adgroupStatus.Value2 = adgroup.Status;
+                if (fields.Contains("name")) {
+                  string column = col.ToString() + i;
+                  Excel.Range adgroupName = activeWorksheet.get_Range(column);
+                  adgroupName.Value2 = adgroup.AdgroupName;
+                  col++;
+                }
 
+                if (fields.Contains("adgroup_status"))
+                {
+                  string column = col.ToString() + i;
+                  Excel.Range adgroupStatus = activeWorksheet.get_Range(column);
+                  adgroupStatus.Value2 = adgroup.Status;
+                  col++;
+                }
+                 
+                if (fields.Contains("account_id")) {
+                  string column = col.ToString() + i;
+                  Excel.Range adgroupAccount = activeWorksheet.get_Range(column);
+                  adgroupAccount.Value2 = adgroup.AdgroupAccontID;
+                  col++;
+                }
                 i++;
             }
 
@@ -102,29 +139,23 @@ namespace ExcelAddIn1
             spendCapDesc.Value2 = "Spend Cap";
             Excel.Range spendCap = activeWorksheet.get_Range("M7");
             spendCap.Value2 = accountDetails.SpendCap;
-
-            //Excel.Range firstRow = activeWorksheet.get_Range("A1");
-            //firstRow.Value2 = "New text";
-            //firstRow.EntireRow.Insert(Excel.XlInsertShiftDirection.xlShiftDown);
-            //Excel.Range newFirstRow = activeWorksheet.get_Range("A1");
-            //newFirstRow.Value2 = "This text was added by using code";
         }
 
-        private void GetAdgroups(out long account, out List<AdGroups> adgroups)
+        private void GetAdgroups(out AdgroupResults adgroupResults)
         {
-            account = 10151318637546538;
+            adgroupResults = new AdgroupResults();
+            List<AdGroups> adgroups = new List<AdGroups>();
+            HashSet<string> fields = new HashSet<string>();
             FieldsSelector selector = new FieldsSelector(account, token);
             selector.Text  = "Loading data for account: " + this.accountNoEdit.Text;
             var result = selector.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //var fields = FieldsSelector.selectedFields;
-                //adgroups = AdGroups.getAdGroup(token, account, fields);
                 adgroups = FieldsSelector.Adgroups;
+                fields = FieldsSelector.selectedFields;
             }
-            else {
-                adgroups = new List<AdGroups>(); // empty
-            }
+            adgroupResults.Adgroups = adgroups;
+            adgroupResults.Fields = fields;
         }
 
         private void accountNoEdit_TextChanged(object sender, RibbonControlEventArgs e)

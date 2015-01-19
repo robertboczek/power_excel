@@ -162,6 +162,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="AdgroupResults.cs" />
     <Compile Include="FieldsSelector.cs">
       <SubType>Form</SubType>
     </Compile>
