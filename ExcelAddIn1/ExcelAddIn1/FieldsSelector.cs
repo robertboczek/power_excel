@@ -50,9 +50,16 @@ namespace ExcelAddIn1
             );
             // Load it
 
-            var fields = FieldsSelector.selectedFields;
-            FieldsSelector.Adgroups = AdGroups.getAdGroup(this.access_token, this.account_id, fields);
-
+            var old_cursor = this.Cursor;
+            try
+            {
+                var fields = FieldsSelector.selectedFields;
+                FieldsSelector.Adgroups = AdGroups.getAdGroup(this.access_token, this.account_id, fields);
+                this.Cursor = Cursors.WaitCursor;
+            }
+            finally {
+                this.Cursor = old_cursor;
+            }
             // close it 
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
