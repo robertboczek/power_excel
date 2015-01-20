@@ -6,6 +6,7 @@ using Microsoft.Office.Tools.Ribbon;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using GraphCaller;
+using System.Net;
 
 namespace ExcelAddIn1
 {
@@ -19,6 +20,8 @@ namespace ExcelAddIn1
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
+            // remove proxy - a great slowness source
+            WebRequest.DefaultWebProxy = null;
             
         }
 
