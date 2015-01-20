@@ -15,6 +15,7 @@ namespace ExcelAddIn1
     {
         private string token = "";
         private long account = 299668039;
+        private const int StartingRow = 2;  // 1 for header
 
         private AdgroupResults adgroupResults;
 
@@ -30,14 +31,15 @@ namespace ExcelAddIn1
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
             string account = this.accountNoEdit.Text;
-            for (int i = 1; i <= adgroupResults.Adgroups.Count; i++)
+            for (int i = 0; i < adgroupResults.Adgroups.Count; i++)
             {
+                int row = Ribbon1.StartingRow + i;
                 Dictionary<string, object> changes = new Dictionary<string, object>();
                 char col = 'A';
                 HashSet<string> fields = adgroupResults.Fields;
                  string adgroupId = "";
                 if (fields.Contains("id")) {
-                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + i);
+                    Excel.Range cell = activeWorksheet.get_Range(col.ToString() + row);
                   if (cell.Value2 is Double) {
                     adgroupId = cell.Value2.ToString();
                   }
@@ -45,13 +47,13 @@ namespace ExcelAddIn1
                 }
 
                 if (fields.Contains("name")) {
-                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + i);
+                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + row);
                   changes.Add("name", cell.Value2);
                   col++;
                 }
 
                 if (fields.Contains("adgroup_status")) {
-                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + i);
+                  Excel.Range cell = activeWorksheet.get_Range(col.ToString() + row);
                   changes.Add("adgroup_status", cell.Value2);
                   col++;
                 }
@@ -71,7 +73,22 @@ namespace ExcelAddIn1
 
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
-            int i = 1;
+            
+            // Add header
+            if (Ribbon1.StartingRow > 1) { 
+                char col = 'A';
+                var headerRow = (Ribbon1.StartingRow - 1).ToString();
+                foreach (var f in new List<string>() { "id", "name", "adgroup_status", "account_id" })
+                {
+                    if (fields.Contains(f)) {
+                        Excel.Range headerColumn = activeWorksheet.get_Range(col.ToString() + headerRow);
+                        headerColumn.Value2 = f;
+                        col++;
+                    }
+                }
+            }
+            
+            int i = Ribbon1.StartingRow;
             string adgroupStatusRangeStart = "";
             string adgroupStatusRangeEnd = "";
             foreach (var adgroup in adgroups)
