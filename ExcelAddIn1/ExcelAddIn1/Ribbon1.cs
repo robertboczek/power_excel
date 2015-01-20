@@ -19,6 +19,7 @@ namespace ExcelAddIn1
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
+            
         }
 
         private void syncButton_Click(object sender, RibbonControlEventArgs e)
@@ -68,6 +69,8 @@ namespace ExcelAddIn1
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
             int i = 1;
+            string adgroupStatusRangeStart = "";
+            string adgroupStatusRangeEnd = "";
             foreach (var adgroup in adgroups)
             {
                 char col = 'A';
@@ -75,6 +78,8 @@ namespace ExcelAddIn1
                   string column = col.ToString() + i;
                   Excel.Range adgroupId = activeWorksheet.get_Range(column);
                   adgroupId.Value2 = adgroup.AdgroupId;
+                  // set style, no commas
+                  activeWorksheet.Range[column].Style.NumberFormat = "0"; 
                   col++;
                 }
 
@@ -88,9 +93,13 @@ namespace ExcelAddIn1
                 if (fields.Contains("adgroup_status"))
                 {
                   string column = col.ToString() + i;
+                  if (i == 1) {
+                    adgroupStatusRangeStart = column;
+                  }
                   Excel.Range adgroupStatus = activeWorksheet.get_Range(column);
                   adgroupStatus.Value2 = adgroup.Status;
                   col++;
+                  adgroupStatusRangeEnd = column;
                 }
                  
                 if (fields.Contains("account_id")) {
