@@ -7,6 +7,8 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using GraphCaller;
 using System.Net;
+using Microsoft.Office.Interop.Excel;
+using System.Drawing;
 
 namespace ExcelAddIn1
 {
@@ -24,6 +26,37 @@ namespace ExcelAddIn1
             // remove proxy - a great slowness source
             WebRequest.DefaultWebProxy = null;
             
+        }
+
+        private void setStatusFormatCondition (Range range) {
+            Dictionary<string,Color> status_to_color = new Dictionary<string,Color>(){
+                {"ACTIVE", Color.DarkGreen},
+                {"PAUSED", Color.DarkGray},
+                {"PENDING_REVIEW", Color.DarkMagenta},
+                {"CAMPAIGN_PAUSED", Color.Gray},
+                {"DISAPPROVED", Color.DarkSalmon},
+                {"CAMPAIGN_GROUP_PAUSED", Color.LightGray},
+            };
+
+            Dictionary<string, Color> status_to_color_background = new Dictionary<string, Color>(){
+                {"ACTIVE", Color.LightGreen},
+                {"PAUSED", Color.WhiteSmoke},
+                {"PENDING_REVIEW", Color.LightGray},
+                {"CAMPAIGN_PAUSED", Color.WhiteSmoke},
+                {"DISAPPROVED", Color.LightPink},
+                {"CAMPAIGN_GROUP_PAUSED", Color.WhiteSmoke},
+            };
+            foreach( var kvp in status_to_color) {
+                var paused_cond = range.FormatConditions.Add(
+                    XlFormatConditionType.xlCellValue,
+                    XlFormatConditionOperator.xlEqual, 
+                    kvp.Key);
+                paused_cond.Font.Color = System.Drawing.ColorTranslator.ToOle(kvp.Value);
+                if (status_to_color_background.ContainsKey(kvp.Key)) { 
+                     paused_cond.Interior.Color
+                         = System.Drawing.ColorTranslator.ToOle(status_to_color_background[kvp.Key]);
+                }
+            }
         }
 
         private void syncButton_Click(object sender, RibbonControlEventArgs e)
@@ -99,7 +132,7 @@ namespace ExcelAddIn1
                   Excel.Range adgroupId = activeWorksheet.get_Range(column);
                   adgroupId.Value2 = adgroup.AdgroupId;
                   // set style, no commas
-                  activeWorksheet.Range[column].Style.NumberFormat = "0"; 
+                  activeWorksheet.Range[column].NumberFormat = "0"; 
                   col++;
                 }
 
@@ -118,6 +151,7 @@ namespace ExcelAddIn1
                   }
                   Excel.Range adgroupStatus = activeWorksheet.get_Range(column);
                   adgroupStatus.Value2 = adgroup.Status;
+                  this.setStatusFormatCondition(adgroupStatus);
                   col++;
                   adgroupStatusRangeEnd = column;
                 }
