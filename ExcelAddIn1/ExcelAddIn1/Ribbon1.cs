@@ -20,6 +20,7 @@ namespace ExcelAddIn1
         private const int StartingRow = 2;  // 1 for header
 
         private AdgroupResults adgroupResults;
+        private FieldsSelector selector;
 
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
@@ -64,6 +65,8 @@ namespace ExcelAddIn1
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
             string account = this.accountNoEdit.Text;
+            int count = 0;
+            int synced = 0;
             for (int i = 0; i < adgroupResults.Adgroups.Count; i++)
             {
                 int row = Ribbon1.StartingRow + i;
@@ -92,13 +95,20 @@ namespace ExcelAddIn1
                 }
                 if (!adgroupId.Equals(""))
                 {
-                    Uploader.Edit(adgroupId, token, changes);
+                    count++;
+                    try
+                    {
+                        Uploader.Edit(adgroupId, token, changes);
+                        synced++;
+                    } catch (Exception exception)
+                    {}
                 }
             }
-            MessageBox.Show("Data successfully synced!");
+            this.load(sender, e);
+            MessageBox.Show("Successfully updated " + synced + " out of " + count);
         }
 
-        private async void loadButton_Click(object sender, RibbonControlEventArgs e)
+        private async void load(object sender, RibbonControlEventArgs e)
         {
             GetAdgroups(out adgroupResults);
             List<AdGroups> adgroups = adgroupResults.Adgroups;
@@ -106,61 +116,67 @@ namespace ExcelAddIn1
 
             Excel.Window window = e.Control.Context;
             Excel.Worksheet activeWorksheet = ((Excel.Worksheet)window.Application.ActiveSheet);
-            
+
             // Add header
-            if (Ribbon1.StartingRow > 1) { 
+            if (Ribbon1.StartingRow > 1)
+            {
                 char col = 'A';
                 var headerRow = (Ribbon1.StartingRow - 1).ToString();
                 foreach (var f in new List<string>() { "id", "name", "adgroup_status", "account_id" })
                 {
-                    if (fields.Contains(f)) {
+                    if (fields.Contains(f))
+                    {
                         Excel.Range headerColumn = activeWorksheet.get_Range(col.ToString() + headerRow);
                         headerColumn.Value2 = f;
                         col++;
                     }
                 }
             }
-            
+
             int i = Ribbon1.StartingRow;
             string adgroupStatusRangeStart = "";
             string adgroupStatusRangeEnd = "";
             foreach (var adgroup in adgroups)
             {
                 char col = 'A';
-                if (fields.Contains("id")) {
-                  string column = col.ToString() + i;
-                  Excel.Range adgroupId = activeWorksheet.get_Range(column);
-                  adgroupId.Value2 = adgroup.AdgroupId;
-                  // set style, no commas
-                  activeWorksheet.Range[column].NumberFormat = "0"; 
-                  col++;
+                if (fields.Contains("id"))
+                {
+                    string column = col.ToString() + i;
+                    Excel.Range adgroupId = activeWorksheet.get_Range(column);
+                    adgroupId.Value2 = adgroup.AdgroupId;
+                    // set style, no commas
+                    activeWorksheet.Range[column].NumberFormat = "0";
+                    col++;
                 }
 
-                if (fields.Contains("name")) {
-                  string column = col.ToString() + i;
-                  Excel.Range adgroupName = activeWorksheet.get_Range(column);
-                  adgroupName.Value2 = adgroup.AdgroupName;
-                  col++;
+                if (fields.Contains("name"))
+                {
+                    string column = col.ToString() + i;
+                    Excel.Range adgroupName = activeWorksheet.get_Range(column);
+                    adgroupName.Value2 = adgroup.AdgroupName;
+                    col++;
                 }
 
                 if (fields.Contains("adgroup_status"))
                 {
-                  string column = col.ToString() + i;
-                  if (i == 1) {
-                    adgroupStatusRangeStart = column;
-                  }
-                  Excel.Range adgroupStatus = activeWorksheet.get_Range(column);
-                  adgroupStatus.Value2 = adgroup.Status;
-                  this.setStatusFormatCondition(adgroupStatus);
-                  col++;
-                  adgroupStatusRangeEnd = column;
+                    string column = col.ToString() + i;
+                    if (i == 1)
+                    {
+                        adgroupStatusRangeStart = column;
+                    }
+                    Excel.Range adgroupStatus = activeWorksheet.get_Range(column);
+                    adgroupStatus.Value2 = adgroup.Status;
+                    this.setStatusFormatCondition(adgroupStatus);
+                    col++;
+                    adgroupStatusRangeEnd = column;
                 }
-                 
-                if (fields.Contains("account_id")) {
-                  string column = col.ToString() + i;
-                  Excel.Range adgroupAccount = activeWorksheet.get_Range(column);
-                  adgroupAccount.Value2 = adgroup.AdgroupAccontID;
-                  col++;
+
+                if (fields.Contains("account_id"))
+                {
+                    string column = col.ToString() + i;
+                    Excel.Range adgroupAccount = activeWorksheet.get_Range(column);
+                    adgroupAccount.Value2 = adgroup.AdgroupAccontID;
+                    col++;
                 }
                 i++;
             }
@@ -204,19 +220,35 @@ namespace ExcelAddIn1
             spendCap.Value2 = accountDetails.SpendCap;
         }
 
+        private async void loadButton_Click(object sender, RibbonControlEventArgs e)
+        {
+            this.selector = null;
+            this.load(sender, e);
+        }
+
         private void GetAdgroups(out AdgroupResults adgroupResults)
         {
             adgroupResults = new AdgroupResults();
             List<AdGroups> adgroups = new List<AdGroups>();
             HashSet<string> fields = new HashSet<string>();
-            FieldsSelector selector = new FieldsSelector(account, token);
-            selector.Text  = "Loading data for account: " + this.accountNoEdit.Text;
-            var result = selector.ShowDialog();
-            if (result == DialogResult.OK)
+            if (this.selector == null)
             {
+                this.selector = new FieldsSelector(account, token);
+                this.selector.Text = "Loading data for account: " + this.accountNoEdit.Text;
+                var result = selector.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    adgroups = FieldsSelector.Adgroups;
+                    fields = FieldsSelector.selectedFields;
+                }
+            }
+            else
+            {
+                selector.loadData();
                 adgroups = FieldsSelector.Adgroups;
                 fields = FieldsSelector.selectedFields;
             }
+            
             adgroupResults.Adgroups = adgroups;
             adgroupResults.Fields = fields;
         }

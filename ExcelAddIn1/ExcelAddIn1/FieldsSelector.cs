@@ -61,8 +61,16 @@ namespace ExcelAddIn1
             FieldsSelector.selectedFields = new HashSet<string>(
                this.listView1.CheckedItems.Cast<ListViewItem>().Select(i => i.Text)
             );
-            // Load it
+            // Load data
+            loadData();
 
+            // close it 
+            this.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.Close();
+        }
+
+        public void loadData()
+        {
             var old_cursor = this.Cursor;
             try
             {
@@ -71,12 +79,10 @@ namespace ExcelAddIn1
 
                 this.Cursor = Cursors.WaitCursor;
             }
-            finally {
+            finally
+            {
                 this.Cursor = old_cursor;
             }
-            // close it 
-            this.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.Close();
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
