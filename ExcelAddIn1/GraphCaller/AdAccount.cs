@@ -10,11 +10,11 @@ namespace GraphCaller
     {
         private static HashSet<string> defaultFields = new HashSet<string>() { "id", "name", "balance", "daily_spend_limit"};
 
-        public long AccontID { get; set; }
+        public string AccontID { get; set; }
 
-        public string  Id{ get; set; }
+        public string Id { get; set; }
 
-        public long SpendLimit { get; set; }
+        public string SpendLimit { get; set; }
 
         public long DailySpend { get; set; }
 
@@ -31,7 +31,7 @@ namespace GraphCaller
 
             dynamic obj2 = fb.Get("act_" + account_id.ToString(), new { fields = param["fields"] });
             result.Id = obj2["id"];
-            result.AccontID = long.Parse(obj2["account_id"]);
+            result.AccontID = obj2["account_id"];
             result.DailySpend = obj2["daily_spend_limit"];
             return result;
 
